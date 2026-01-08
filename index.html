@@ -105,7 +105,7 @@
             z-index: 10;
             pointer-events: none;
         }
-        model-viewer:not([loading]) #loading-text {
+        #loading-text.hidden {
             display: none;
         }
     </style>
@@ -123,5 +123,13 @@
             <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
         </div>
     </model-viewer>
+    <script>
+        const modelViewer = document.querySelector('model-viewer');
+        const loadingText = document.getElementById('loading-text');
+        
+        modelViewer.addEventListener('load', () => {
+            loadingText.classList.add('hidden');
+        });
+    </script>
 </body>
 </html>
